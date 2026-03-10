@@ -1,4 +1,4 @@
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 
 
 /// Type representing a path that actually exists in the filesystem
@@ -44,6 +44,41 @@ pub struct NewDir {
 
 
 
+impl AsRef<Path> for ExistingPath {
+    fn as_ref(&self) -> &Path {
+        &self.0
+    }
+}
+
+impl AsRef<Path> for ExistingFile {
+    fn as_ref(&self) -> &Path {
+        &self.0
+    }
+}
+
+impl AsRef<Path> for ExistingDir {
+    fn as_ref(&self) -> &Path {
+        &self.0
+    }
+}
+
+impl AsRef<Path> for NewPath {
+    fn as_ref(&self) -> &Path {
+        &self.path
+    }
+}
+
+impl AsRef<Path> for NewFile {
+    fn as_ref(&self) -> &Path {
+        &self.path
+    }
+}
+
+impl AsRef<Path> for NewDir {
+    fn as_ref(&self) -> &Path {
+        &self.path
+    }
+}
 
 
 
