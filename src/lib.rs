@@ -11,10 +11,22 @@ pub struct ExistingPath(PathBuf);
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
 pub struct ExistingFile(PathBuf);
 
+impl From<ExistingFile> for ExistingPath {
+    fn from(value: ExistingFile) -> Self {
+        ExistingPath(value.0)
+    }
+}
+
 /// Type representing a directory path that actually exists in the filesystem
 /// (at the moment of creation of the ExistingDir object).
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
 pub struct ExistingDir(PathBuf);
+
+impl From<ExistingDir> for ExistingPath {
+    fn from(value: ExistingDir) -> Self {
+        ExistingPath(value.0)
+    }
+}
 
 /// Type representing a path that might not yet exist in the filesystem
 /// but is consistent (at the moment of creation of the NewPath object),
