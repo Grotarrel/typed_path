@@ -3,14 +3,17 @@ use std::path::{Path, PathBuf};
 
 /// Type representing a path that actually exists in the filesystem
 /// (at the moment of creation of the ExistingPath object).
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
 pub struct ExistingPath(PathBuf);
 
 /// Type representing a file path that actually exists in the filesystem
 /// (at the moment of creation of the ExistingFile object).
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
 pub struct ExistingFile(PathBuf);
 
 /// Type representing a directory path that actually exists in the filesystem
 /// (at the moment of creation of the ExistingDir object).
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
 pub struct ExistingDir(PathBuf);
 
 /// Type representing a path that might not yet exist in the filesystem
